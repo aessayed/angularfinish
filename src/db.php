@@ -1,22 +1,18 @@
 <?php
-
 $host = 'localhost';
 $db = 'ecom';
-$user = "root";
+$user = 'root';
 $pass = '';
 
-$dsn = "mysql:host=$host; dbname=$db";
+$dsn = "mysql:host=$host;dbname=$db";
 $options = [
     PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-
 ];
 
-try{
+try {
     $pdo = new PDO($dsn, $user, $pass, $options);
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
 }
-catch(PDOException $e) {
-    echo 'conection failed : ' . $e->getMessage();
-}
-
 ?>

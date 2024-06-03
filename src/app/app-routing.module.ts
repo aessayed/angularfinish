@@ -6,10 +6,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './hero/hero.component';
 import { RolexComponent } from './rolex/rolex.component';
-
+import { UserFormComponent } from './user-form/user-form.component';
+import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: 'hero', component: HeroComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: UserFormComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },

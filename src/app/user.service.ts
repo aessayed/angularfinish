@@ -1,29 +1,35 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Users } from './user';
+
+interface User {
+  email: string;
+  password: string;
+}
+
+interface LoginResponse {
+  status: string;
+  user?: User;
+  error?: string;
+}
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UserService {
   private apiUrl = 'http://localhost/firstproject/src/index.php';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getUsers(): Observable<Users[]> {
-    return this.http.get<Users[]>(this.apiUrl);
-  }
-
-  addUser(user: Users): Observable<any> {
+  registerUser(user: User): Observable<any> {
     return this.http.post(this.apiUrl, user);
   }
 
-  updateUser(user: Users): Observable<any> {
-    return this.http.put(`${this.apiUrl}/${user.Id}`, user);
+  checkUserExistence(email: string): Observable<any> {
+    return this.http.post(`${this.apiUrl}`, { email });
   }
 
-  deleteUser(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+  loginUser(user: User): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>(this.apiUrl, user);
   }
 }

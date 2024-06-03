@@ -18,6 +18,9 @@ import { HeroComponent } from './hero/hero.component';
 import { RolexComponent } from './rolex/rolex.component';
 import { ProductComponent } from './product/product.component';
 
+import { UserFormComponent } from './user-form/user-form.component';
+import { LoginComponent } from './login/login.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,6 +32,8 @@ import { ProductComponent } from './product/product.component';
 
     RolexComponent,
     ProductComponent,
+    UserFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
