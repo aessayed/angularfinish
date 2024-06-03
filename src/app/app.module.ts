@@ -1,21 +1,22 @@
 import { NgModule } from '@angular/core';
-import {
-  BrowserModule,
-  provideClientHydration,
-} from '@angular/platform-browser';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // If needed
+import {
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
+
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './hero/hero.component';
-import { UserListComponent } from './user-list/user-list.component';
-import { UserFormComponent } from './user-form/user-form.component';
-import { HttpClientModule } from '@angular/common/http';
+
 import { RolexComponent } from './rolex/rolex.component';
+import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
@@ -25,19 +26,18 @@ import { RolexComponent } from './rolex/rolex.component';
     NavbarComponent,
     FooterComponent,
     HeroComponent,
-    UserListComponent,
 
-    UserFormComponent,
-    UserFormComponent,
-    RolexComponent, // Declare your component,
+    RolexComponent,
+    ProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule, // Add FormsModule to imports array
+    FormsModule, // If you're using FormsModule
     HttpClientModule,
+    ReactiveFormsModule,
   ],
-  providers: [provideClientHydration()],
+  providers: [provideHttpClient(withFetch())],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

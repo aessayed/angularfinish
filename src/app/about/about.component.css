@@ -1,58 +1,73 @@
-body, html {
-    margin: 0;
+*{
     padding: 0;
-    font-family: Arial, sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: poppins;
 }
-
-/* About section styling */
-.about-section {
-    padding: 50px;
-    text-align: center;
-    background-color: #474e5d;
-    color: white;
-}
-
-/* Team member card styling */
-.column {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 16px;
-    padding: 0 8px;
-}
-
-.card {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: 8px;
-}
-
-.container {
-    padding: 0 16px;
-}
-
-.title {
-    color: grey;
-}
-
-.button {
-    border: none;
-    outline: 0;
-    display: inline-block;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
+#about-section {
     width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 12%;
+}
+.about-left img{
+    width: 420px;
+    height: auto;
+    transform: translateY(50px);
+}
+.about-right {
+    width: 54%;
 }
 
-.button:hover {
-    background-color: #555;
+.about-right ul li {
+    display: flex;
+    align-items: center;
 }
 
-/* Responsive layout for small screens */
-@media screen and (max-width: 650px) {
-    .column {
-        width: 100%;
-        display: block;
-    }
+.about-right h1 {
+    color: #eb455f;
+    font-size: 37px;
+    margin-bottom: 5px;
+}
+
+.about-right p {
+    color: #444;
+    line-height: 26px;
+    font-size: 15px;
+}
+
+.about-right .address {
+    margin: 25px 0;
+}
+
+.about-right .address ul li {
+    margin-bottom: 5px;
+}
+
+.address .address-logo {
+    margin-right: 15px;
+    color: #eb455f;
+}
+
+.address .saprater {
+    margin: 0 35px;
+}
+
+.about-right .expertise ul {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.expertise h3 {
+    margin-bottom: 10px;
+}
+
+.expertise .expertise-logo {
+    font-size: 19px;
+    margin-right: 10px;
+    color: #eb455f;
 }

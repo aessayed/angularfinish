@@ -1,109 +1,133 @@
-
 body {
-    font-family: "Poppins", sans-serif;
-  }
-  
+  font-family: "Poppins", sans-serif;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+}
+
+.nav2 {
+  margin-left: auto;
+}
+
+.toggle-button {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+nav {
+  flex: 1;
+  text-align: right;
+}
+
+nav ul {
+  display: inline-block;
+  list-style-type: none;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 39px;
+  margin-right: 3rem;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #555;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+a:after, #links:after {
+  content: "";
+  position: absolute;
+  background-color: #eb455f;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+a:hover, #links:hover {
+  color: #555;
+}
+
+a:hover:after, #links:hover:after {
+  width: 100%;
+}
+
+p {
+  color: #555;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.col-2 img {
+  max-width: 85%;
+  padding: 50px 0;
+}
+
+.col-2 h1 {
+  font-size: 50px;
+  line-height: 60px;
+  margin: 25px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .navbar {
-    display: flex;
-    align-items: center;
-    padding-left: 7rem;
+      flex-direction: column;
+      padding-left: 1rem;
   }
+
   .nav2 {
-    margin-left: 12rem;
+      margin-left: 0;
+      text-align: center;
   }
+
   nav {
-    flex: 1;
-    text-align: right;
+      text-align: center;
   }
-  
+
   nav ul {
-    display: inline-block;
-    list-style-type: none;
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 300;
-    font-size: 30px;
-    line-height: 39px;
-    margin-right: 3rem;
+      margin-right: 0;
+      padding: 0;
   }
-  
+
   nav ul li {
-    display: inline-block;
-    margin-right: 20px;
+      display: block;
+      margin: 10px 0;
   }
-  
-  a {
-    text-decoration: none;
-    color: #555;
-    position: relative;
-    letter-spacing: 0.5px;
+
+  .toggle-button {
+      display: block;
   }
-  #links {
-    text-decoration: none;
-    color: #555;
-    position: relative;
-    letter-spacing: 0.5px;
+}
+
+@media (max-width: 480px) {
+  .navbar {
+      padding-left: 0.5rem;
   }
-  
-  a:after {
-    content: "";
-    position: absolute;
-    background-color: #eb455f;
-    height: 3px;
-    width: 0;
-    left: 0;
-    bottom: -10px;
-    transition: 0.5s;
+
+  .nav2 {
+      margin-left: 0;
   }
-  #links:after {
-    content: "";
-    position: absolute;
-    background-color: #eb455f;
-    height: 3px;
-    width: 0;
-    left: 0;
-    bottom: -10px;
-    transition: 0.5s;
+
+  nav ul li {
+      margin: 5px 0;
   }
-  a:hover {
-    color: #555;
-  }
-  #links:hover {
-    color: #555;
-  }
-  a:hover:after {
-    width: 0;
-  }
-  #links:hover:after {
-    width: 100%;
-  }
-  
-  a {
-      text-decoration: none !important;
-  
-  }
-  
-  
-  
-  
-  p {
-    color: #555;
-  }
-  
-  .row {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    justify-content: space-around;
-  }
-  
-  .col-2 img {
-    max-width: 85%;
-    padding: 50px 0;
-  }
-  
-  .col-2 h1 {
-    font-size: 50px;
-    line-height: 60 px;
-    margin: 25px 0;
-  }
+}

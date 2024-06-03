@@ -14,8 +14,8 @@ const routes: Routes = [
   { path: 'footer', component: FooterComponent },
   { path: 'about', component: AboutComponent },
   { path: 'rolex', component: RolexComponent },
-
   { path: '', redirectTo: '/hero', pathMatch: 'full' },
+  { path: '**', redirectTo: '/hero', pathMatch: 'full' }, // Wildcard route
 ];
 
 @NgModule({
