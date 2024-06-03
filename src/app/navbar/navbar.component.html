@@ -1,5 +1,3 @@
-<link rel="icon" href="../../assets/images/favicon.png" type="image/x-icon" />
-
 <div class="header">
   <div class="navbar">
     <div class="logo">
@@ -11,35 +9,25 @@
       <nav>
         <ul>
           <li><a routerLink="new" id="links">Product</a></li>
-          <li><a routerLink="rolex" id="links">Rolex</a></li>
-          <li><a routerLink="about" id="links">About</a></li>
-          <li><a routerLink="contactus" id="links">Contact Us</a></li>
-          <li><a routerLink="cart" id="links">Cart</a></li>
+          <li><a routerLink="/rolex" id="links">Rolex</a></li>
+          <li><a routerLink="/about" id="links">About</a></li>
+          <li><a routerLink="/contact" id="links">Contact Us</a></li>
+          <li><a routerLink="/cart" id="links">Cart</a></li>
           <li>
-            <a routerLink="login" id="links"
-              ><i class="fa-solid fa-user"></i
-            ></a>
-          </li>
-          <!-- Conditional Rendering for Admin Links -->
-          <!-- <li *ngIf="isAdmin">
-            <div id="mySidenav" class="sidenav">
-              <a href="javascript:void(0)" class="closebtn" (click)="closeNav()"
-                >&times;</a
+            <a routerLink="/login" id="links">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 448 512"
+                width="20"
+                height="20"
               >
-              <a routerLink="add-products">Add Products</a>
-              <a routerLink="view-products">View Products</a>
-              <a routerLink="view-users" *ngIf="isSuperAdmin">View Users</a>
-              <a routerLink="accept-users" *ngIf="isSuperAdmin">Accept Users</a>
-            </div>
-            <span style="font-size: 30px; cursor: pointer" (click)="openNav()"
-              >&#9776;</span
-            >
+                <path
+                  d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"
+                />
+              </svg>
+              Login
+            </a>
           </li>
-          <li *ngIf="isLoggedIn">
-            <a routerLink="logout" id="links"
-              ><i class="fa-solid fa-right-from-bracket"></i
-            ></a>
-          </li> -->
         </ul>
       </nav>
     </div>

@@ -7,19 +7,15 @@ import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './hero/hero.component';
 import { RolexComponent } from './rolex/rolex.component';
 
-const routes: Routes = [{path: 'hero', component:HeroComponent },
-{path: 'contact', component: ContactComponent },
-{path: 'navbar', component: NavbarComponent },
-{path: 'footer', component: FooterComponent },
-{path: 'about', component: AboutComponent },
-{path: 'rolex', component: RolexComponent },
-
-
-
-
-
-
-{path:'',redirectTo:'/hero',pathMatch:'full'},
+const routes: Routes = [
+  { path: 'hero', component: HeroComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'navbar', component: NavbarComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'about', component: AboutComponent },
+  { path: 'rolex', component: RolexComponent },
+  { path: '', redirectTo: '/hero', pathMatch: 'full' },
+  { path: '**', redirectTo: '/hero', pathMatch: 'full' } // Wildcard route
 ];
 
 @NgModule({
