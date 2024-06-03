@@ -26,7 +26,7 @@ export class UserFormComponent {
         }
       },
       (error) => {
-        this.errorMessage = 'An error occurred. Please try again.';
+        this.errorMessage = 'User already exist.';
       }
     );
   }
