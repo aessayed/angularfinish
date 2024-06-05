@@ -20,6 +20,10 @@ import { ProductComponent } from './product/product.component';
 
 import { UserFormComponent } from './user-form/user-form.component';
 import { LoginComponent } from './login/login.component';
+import { AddProductComponent } from './add-product/add-product.component';
+import { ProductListComponent } from './product-list/product-list.component';
+import { EditProductListComponent } from './edit-product-list/edit-product-list.component';
+import { EditProductComponent } from './edit-product-component/edit-product-component.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +38,10 @@ import { LoginComponent } from './login/login.component';
     ProductComponent,
     UserFormComponent,
     LoginComponent,
+    AddProductComponent,
+    ProductListComponent,
+    EditProductListComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,
