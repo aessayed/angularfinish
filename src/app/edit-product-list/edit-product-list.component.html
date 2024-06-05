@@ -1,0 +1,18 @@
+<!-- src/app/product-list/product-list.component.html -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of products">
+      <div class="card mb-4">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">{{ product.description }}</p>
+          <p class="card-text"><strong>Price:</strong> ${{ product.price }}</p>
+          <button class="btn btn-primary" (click)="editProduct(product.id)">
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

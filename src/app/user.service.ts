@@ -29,7 +29,11 @@ export class UserService {
     return this.http.post(`${this.apiUrl}`, { email });
   }
 
-  loginUser(user: User): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>(this.apiUrl, user);
+  loginUser(email: string, password: string): Observable<LoginResponse> {
+    const encodedEmail = encodeURIComponent(email.trim()); // Trim spaces from the email
+    const url = `${
+      this.apiUrl
+    }?email=${encodedEmail}&password=${encodeURIComponent(password)}`;
+    return this.http.get<LoginResponse>(url);
   }
 }
