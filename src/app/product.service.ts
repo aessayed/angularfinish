@@ -1,4 +1,4 @@
-// src/app/product.service.ts
+// ProductService
 
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -10,6 +10,7 @@ import { Product } from './product';
 })
 export class ProductService {
   private apiUrl = 'http://localhost/firstproject/src/products.php';
+  private uploadUrl = 'http://localhost/firstproject/src/upload.php'; // Endpoint for image upload
 
   constructor(private http: HttpClient) {}
 
@@ -18,7 +19,6 @@ export class ProductService {
   }
 
   getProductById(id: number): Observable<Product> {
-    console.log('id from service', id);
     return this.http.get<Product>(`${this.apiUrl}/products/${id}`);
   }
 
@@ -32,5 +32,9 @@ export class ProductService {
 
   deleteProduct(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/products/${id}`);
+  }
+
+  uploadImage(formData: FormData): Observable<any> {
+    return this.http.post<any>(this.uploadUrl, formData);
   }
 }

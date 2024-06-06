@@ -6,7 +6,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 include 'db.php';
 
 $method = $_SERVER['REQUEST_METHOD'];
-    
+
 switch ($method) {
     case 'GET':
         if (isset($_GET['id'])) {
@@ -15,6 +15,8 @@ switch ($method) {
             $stmt->execute([$id]);
             $product = $stmt->fetch(PDO::FETCH_ASSOC);
             if ($product) {
+                // Ensure the image URL is correct
+                $product['image'] = '' . $product['image'];
                 echo json_encode($product);
             } else {
                 http_response_code(404);
@@ -23,16 +25,20 @@ switch ($method) {
         } else {
             $stmt = $pdo->query("SELECT * FROM products");
             $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            // Update image URLs for all products
+            foreach ($products as &$product) {
+                $product['image'] = '' . $product['image'];
+            }
             echo json_encode($products);
         }
         break;
 
     case 'POST':
         $data = json_decode(file_get_contents('php://input'), true);
-        if (isset($data['name'], $data['description'], $data['price'])) {
+        if (isset($data['name'], $data['description'], $data['price'], $data['image'])) {
             try {
-                $stmt = $pdo->prepare("INSERT INTO products (name, description, price) VALUES (?, ?, ?)");
-                $stmt->execute([$data['name'], $data['description'], $data['price']]);
+                $stmt = $pdo->prepare("INSERT INTO products (name, description, price, image) VALUES (?, ?, ?, ?)");
+                $stmt->execute([$data['name'], $data['description'], $data['price'], $data['image']]);
                 echo json_encode(['id' => $pdo->lastInsertId()]);
             } catch (PDOException $e) {
                 http_response_code(500);
@@ -44,23 +50,22 @@ switch ($method) {
         }
         break;
 
-        case 'PUT':
-            $data = json_decode(file_get_contents('php://input'), true);
-            if (isset($data['id'], $data['name'], $data['description'], $data['price'])) {
-                try {
-                    $stmt = $pdo->prepare("UPDATE products SET name = ?, description = ?, price = ? WHERE id = ?");
-                    $stmt->execute([$data['name'], $data['description'], $data['price'], $data['id']]);
-                    echo json_encode(['success' => 'Product updated successfully']);
-                } catch (PDOException $e) {
-                    http_response_code(500);
-                    echo json_encode(['error' => 'Internal Server Error']);
-                }
-            } else {
-                http_response_code(400);
-                echo json_encode(['error' => 'Bad Request']);
+    case 'PUT':
+        $data = json_decode(file_get_contents('php://input'), true);
+        if (isset($data['id'], $data['name'], $data['description'], $data['price'], $data['image'])) {
+            try {
+                $stmt = $pdo->prepare("UPDATE products SET name = ?, description = ?, price = ?, image = ? WHERE id = ?");
+                $stmt->execute([$data['name'], $data['description'], $data['price'], $data['image'], $data['id']]);
+                echo json_encode(['success' => 'Product updated successfully']);
+            } catch (PDOException $e) {
+                http_response_code(500);
+                echo json_encode(['error' => 'Internal Server Error']);
             }
-            break;
-        
+        } else {
+            http_response_code(400);
+            echo json_encode(['error' => 'Bad Request']);
+        }
+        break;
 
     case 'DELETE':
         if (isset($_GET['id'])) {

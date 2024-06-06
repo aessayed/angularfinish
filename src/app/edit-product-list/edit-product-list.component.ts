@@ -26,7 +26,7 @@ export class EditProductListComponent implements OnInit {
 
   editProduct(id?: number): void {
     if (id != null) {
-      this.router.navigate(['/edit-product', id]);
+      this.router.navigate(['/editproduct', id]);
     } else {
       console.error('Product ID is undefined');
     }

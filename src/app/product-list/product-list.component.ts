@@ -1,5 +1,3 @@
-// src/app/product-list/product-list.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
 import { Product } from '../product';
@@ -18,6 +16,7 @@ export class ProductListComponent implements OnInit {
     this.productService.getProducts().subscribe(
       (data) => {
         this.products = data;
+        console.log('Received products:', this.products); // Log received products
       },
       (error) => {
         console.error('Error fetching products', error);
