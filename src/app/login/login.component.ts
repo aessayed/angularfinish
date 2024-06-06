@@ -19,15 +19,12 @@ export class LoginComponent {
     this.userService.loginUser(this.email, this.password).subscribe(
       (response) => {
         if (response.status === 'success') {
-          // Redirect to '/rolex' or any other page upon successful login
           this.router.navigate(['/rolex']);
         } else {
-          // this.errorMessage = response.error;
         }
       },
       (error: HttpErrorResponse) => {
-        console.error('Error occurred:', error);
-        this.errorMessage = 'An error occurred. Please try again.';
+        this.errorMessage = 'cant login.';
       }
     );
   }
